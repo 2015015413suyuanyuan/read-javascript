@@ -38,6 +38,27 @@ changeColor();
  
 alert("Color is now " + color); 
 ```
+```
+var color = "blue"; 
+ 
+function changeColor(){     
+   var anotherColor = "red"; 
+    function swapColors(){         
+      var tempColor = anotherColor;         
+      anotherColor = color;         
+      color = tempColor; // 这里可以访问 color、anotherColor 和 tempColor     
+      } // 这里可以访问 color 和 anotherColor，但不能访问 tempColor             
+    swapColors(); 
+    } 
+ 
+// 这里只能访问 color changeColor();
+```
+以上代码共涉及 3 个执行环境：全局环境、changeColor()的局部环境和 swapColors()的局部 环境。全局环境中有一个变量 color 和一个函数 changeColor()。changeColor()的局部环境中有 一个名为 anotherColor 的变量和一个名为 swapColors()的函数，但它也可以访问全局环境中的变 量 color。swapColors()的局部环境中有一个变量 tempColor，该变量只能在这个环境中访问到。 无论全局环境还是 changeColor()的局部环境都无权访问 tempColor。然而，在 swapColors()内部 则可以访问其他两个环境中的所有变量，因为那两个环境是它的父执行环境
+
+### 4.2.1 延长作用域链
+
+- try-catch 语句的catch块;
+- with语句
 
 ### JavaScript中 with的用法
 说起js中的with关键字，很多小伙伴们的第一印象可能就是with关键字的作用在于改变作用域，然后最关键的一点是不推荐使用with关键字。听到不推荐with关键字后，我们很多人都会忽略掉with关键字，认为不要去管它用它就可以了。但是有时候，我们在看一些代码或者面试题的时候，其中会有with关键字的相关问题，很多坑是你没接触过的，所以还是有必要说说with这一个关键字。 
