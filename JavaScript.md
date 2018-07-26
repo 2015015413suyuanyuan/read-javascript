@@ -333,6 +333,12 @@ var sum = values.reduce(function(prev,cur,index,array){
 
 Date.parse()方法接收一个表示日期的字符串参数，然后尝试根据这个字符串返回相应日期的毫秒数。
 
+引用类型：object array date regexp function 
+
+基本包装类型：Boolean number string
+
+引用类型与基本包装类型的主要区别就是对象的生存期。使用 new 操作符创建的引用类型的实例， 在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一 行代码的执行瞬间，然后立即被销毁。这意味着我们不能在运行时为基本类型值添加属性和方法
+
 
 
 
